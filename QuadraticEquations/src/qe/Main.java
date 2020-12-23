@@ -22,46 +22,50 @@ public class Main {
 
         System.out.println();
 
+        while (true) {
+            try {
+                System.out.print("Введите A:= ");
+                dec.setA(Integer.parseInt(rd.readLine()));
+            } catch (NumberFormatException e) {
+                System.out.println("ОШИБКА!!! введено не число");
 
-        try {
-            System.out.print("Введите A:= ");
-            dec.setA(Integer.parseInt(rd.readLine()));
-        } catch (NumberFormatException e) {
-            System.out.println("ОШИБКА!!! введено не число");
-
-        }
-        try {
-            System.out.print("Введите B:= ");
-            dec.setB(Integer.parseInt(rd.readLine()));
-        } catch (NumberFormatException e) {
-            System.out.println("ОШИБКА!!! введено не число");
-        }
-        try {
-            System.out.print("Введите C:= ");
-            dec.setC(Integer.parseInt(rd.readLine()));
-        } catch (NumberFormatException e) {
-            System.out.println("ОШИБКА!!! введено не число");
-        }
+            }
+            try {
+                System.out.print("Введите B:= ");
+                dec.setB(Integer.parseInt(rd.readLine()));
+            } catch (NumberFormatException e) {
+                System.out.println("ОШИБКА!!! введено не число");
+            }
+            try {
+                System.out.print("Введите C:= ");
+                dec.setC(Integer.parseInt(rd.readLine()));
+            } catch (NumberFormatException e) {
+                System.out.println("ОШИБКА!!! введено не число");
+            }
 
 
-        System.out.println();
-        if (dec.getDiscriminant() >= 0) {
-            System.out.print("Дискриминант положительный и равен:= ");
-            System.out.println(dec.getDiscriminant());
-            System.out.println("Уравнение имеет два корня: ");
-            System.out.print("x1 равен: = ");
-            double x1 = (-dec.getB() + Math.sqrt(dec.getDiscriminant())) / (2 * dec.getA());
-            System.out.println(x1);
-            System.out.print("x2 равен: = ");
-            double x2 = (-dec.getB() - Math.sqrt(dec.getDiscriminant())) / (2 * dec.getA());
-            System.out.println(x2);
-        } else if (dec.getDiscriminant() < 0) {
-            System.out.print("Дискриминант отрицательный и равен:= ");
-            System.out.println(dec.getDiscriminant());
-            System.out.println("Уравнение не имеет действительных решений.");
+            System.out.println();
+            if (dec.getDiscriminant() >= 0) {
+                System.out.print("Дискриминант положительный и равен:= ");
+                System.out.println(dec.getDiscriminant());
+                System.out.println("Уравнение имеет два корня: ");
+                System.out.print("x1 равен: = ");
+                double x1 = (-dec.getB() + Math.sqrt(dec.getDiscriminant())) / (2 * dec.getA());
+                System.out.println(x1);
+                System.out.print("x2 равен: = ");
+                double x2 = (-dec.getB() - Math.sqrt(dec.getDiscriminant())) / (2 * dec.getA());
+                System.out.println(x2);
+            } else if (dec.getDiscriminant() < 0) {
+                System.out.print("Дискриминант отрицательный и равен:= ");
+                System.out.println(dec.getDiscriminant());
+                System.out.println("Уравнение не имеет действительных решений.");
+                System.out.println();
+                System.out.println("Для выхода нажми Enter:");
+            }
+            String s = rd.readLine();
+            if (s.isEmpty()) break;
         }
     }
 }
-
 
 
